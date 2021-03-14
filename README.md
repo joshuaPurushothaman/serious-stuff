@@ -1,0 +1,2 @@
+- util/ and robot.py mimic WPILib
+- this is to control my EV3 robot, designed similar to Sirius, a fast FLL robot.
