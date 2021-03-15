@@ -11,7 +11,9 @@ class Pose2d:
             right: +y
             clockwise: +theta
     """
-    x = 0.0, y = 0.0, theta = 0.0
+    x = 0.0
+    y = 0.0
+    theta = 0.0
 
     def reset(self):
         self.x = 0.0

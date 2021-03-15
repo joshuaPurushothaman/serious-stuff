@@ -2,35 +2,35 @@
 
 from time import sleep
 
-from ev3dev2.sensor.lego import InfraredSensor, GyroSensor, ColorSensor
-from ev3dev2.sensor import INPUT_1, INPUT_2, INPUT_3, INPUT_4
 from ev3dev2.led import Leds
 from ev3dev2.sound import Sound
 
-from subsystems.Drivetrain import Drivetrain as dt
-from subsystems.Arm import Arm as arm
+from subsystems.Drivetrain import Drivetrain
+# from subsystems.Arm import Arm
 
-leftColor = ColorSensor(INPUT_1)
-rightColor = ColorSensor(INPUT_4)
-ir = InfraredSensor(INPUT_2)
-gyro = GyroSensor(INPUT_3)
+class Robot:
+    leds = Leds()
+    sound = Sound()
 
-leds = Leds()
-sound = Sound()
+    dt = Drivetrain()
 
-#---- Code here:
+    def run(self, mode: str):
+        if mode == 'rc':
+            self.rc()
+        elif mode == 'test':
+            self.test()
+        else:
+            self.auto()
+    
+    def auto(self):
+        """ Default main program """
+        # self.dt.drive()
+        self.dt.line_follow()
 
-def init():
-    return
+    def test(self):
+        """ Used for testing code out before using the final version. """
+        return
 
-def periodic():
-    sound.play_song((
-            ('D4', 'e3'),
-            ('D4', 'e3'),
-            ('D4', 'e3'),
-            ('G4', 'h'),
-            ('D5', 'h')
-        ))
-    return
-
-#---- end
+    def rc(self):
+        """ Intended for remote control with the IR sensor. """
+        return
