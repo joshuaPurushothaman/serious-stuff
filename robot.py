@@ -33,4 +33,4 @@ class Robot:
 
     def rc(self):
         """ Intended for remote control with the IR sensor. """
-        return
+        self.dt.rc()
